@@ -1,0 +1,1 @@
+web: gunicorn montarvillegc.wsgi --log-file -

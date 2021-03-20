@@ -1,0 +1,9 @@
+{% if latest_entrepot_list %}
+    <ul>
+    {% for form in latest_form_list %}
+        <li><a href="/mgc/{{ form.id }}/">{{ form.nom }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No entrepot are available.</p>
+{% endif %}

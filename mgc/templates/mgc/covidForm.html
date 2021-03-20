@@ -1,0 +1,119 @@
+{% extends 'mgc/base_template.html' %}
+{% load static %}
+{% block title %}
+Add Data Page
+{% endblock title %}
+
+{% block custom_css %}
+<style>
+.bg_blue{
+padding:10px;
+border-radius:10px;
+box-shadow:3px 3px 3px grey;
+background:dodgerblue;
+color:#fff;
+}
+.custom-block{
+    padding:15px;
+    border:1px solid dodgerblue;
+}
+.border {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    margin: 6px;
+}
+
+</style>
+{% endblock custom_css %}
+
+{% block bodydata %}
+<div class="container">
+    <img src="{% static 'medias/mgc.jpg' %}">
+{#    <img src="/medias/mgc.jpg" alt="Trulli" width="500" height="333">#}
+
+
+    <div class="row">
+        <div class="col-lg-12"><br>
+            <h2 class="bg_blue">COVID-19 MESURES PRÉVENTIVES - Questionnaire accueil chantier</h2>
+        </div>
+        <div class="col-lg-12"><br>
+            <h5 class="bg_blue"><b>Une réponse « Oui » à un seul des symptômes suivants justifie un retrait immédiat du travail.</b></h5>
+        </div>
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-sm-8 border border-primary" style="background-color:lavender;">
+                    <h5 class="bg_blue">Avez-vous la sensation d’être fiévreux, d’avoir des frissons comme lors d’une grippe, ou une fièvre mesurée avec une température prise par la bouche égale ou supérieure à
+38 oC (100,4 oF) ?</h5>
+                </div>
+                <div class="col-sm-2 border border-primary">
+                    <div class="form-check checkbox">
+                        <input class="form-check-input" type="checkbox" value="Actif" id="iStatus" name="contratCB">
+                        <label class="form-check-label" for="apple">Oui</label>
+                    </div>
+                </div>
+                <div class="col-sm-2 border border-primary">
+                    <div class="form-check checkbox">
+                        <input class="form-check-input" type="checkbox" value="Actif" id="iStatus" name="contratCB">
+                        <label class="form-check-label" for="apple">Non</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        {% if messages %}
+               {% for message in messages %}
+                   {% if message.tags == 'success' %}
+                       <div class="alert alert-success">{{ message }}</div>
+                   {% elif message.tags == 'error' %}
+                       <div class="alert alert-danger">{{ message }}</div>
+                   {% endif %}
+               {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+{% endblock bodydata %}
+
+{% block custom_js %}
+<script>
+    $(document).ready(function(){
+{#        console.log("Ready");#}
+{#        var div_data="";#}
+{##}
+{#        fetchContgrat($(".course").val());#}
+{#        $(".course").change(function(){#}
+{#            $(".subject-div").html('')#}
+{#            fetchSubjects($(this).val());#}
+{#        });#}
+{##}
+{#        $(".add_subject").click(function(){#}
+{#            $(".subject-div").append(div_data);#}
+{#        });#}
+{##}
+{#        $(".remove_subject").click(function(){#}
+{#            $(".subject-div .form-group:last").remove()#}
+{#        })#}
+{##}
+{#        function fetchSubjects(course_id){#}
+{#           $.ajax({#}
+{#            url:'http://127.0.0.1:8000/getSubjects',#}
+{#            type:'POST',#}
+{#            data:{course_id:course_id},#}
+{#           })#}
+{#           .done(function(response){#}
+{#                div_data="<div class='form-group'><select class='form-control' name='subjects[]'>"#}
+{#                for(key in response){#}
+{#                    div_data+="<option value='"+response[key]['pk']+"'>"+response[key]['fields']['subject_name']+"</option>";#}
+{#                }#}
+{#                div_data+='</select></div>'#}
+{#           })#}
+{#           .fail(function(){#}
+{#                console.log("Failed")#}
+{#           })#}
+{#        }#}
+
+    });
+</script>
+{% endblock custom_js %}
